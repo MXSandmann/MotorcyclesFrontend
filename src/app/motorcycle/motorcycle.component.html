@@ -1,0 +1,27 @@
+<button class="btn btn-primary" (click)="onButtonClick()">{{getButtonLabel()}}</button> 
+<div *ngIf="displayMotorcyclesOverview" class="container">
+    <h3>Motorcycles</h3>
+    <div class="col-sm-4">
+        <button class="btn btn-primary" (click)="onButtonClick()">{{getButtonLabel()}}</button>         
+    </div>    
+    <table class="table table-striped">        
+        <thead title="All motorcycles models">
+            <th scope="col">Id</th>
+            <th scope="col">Model name</th>
+            <th scope="col">Company</th>
+            <th scope="col">Type</th>
+            <th scope="col">Engine</th>
+            <th scope="col">Price</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let motorcycle of motorcycleRecieved">
+                <td scope="row">{{ motorcycle.id }}</td>
+                <td scope="row">{{ motorcycle.modelName }}</td>
+                <td scope="row">{{ motorcycle.company }}</td>
+                <td scope="row">{{ motorcycle.modelType }}</td>
+                <td scope="row">{{ motorcycle.enginePower }}</td>
+                <td scope="row">{{ motorcycle.price }}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
