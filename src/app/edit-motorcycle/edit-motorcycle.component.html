@@ -1,0 +1,26 @@
+<div *ngIf="motorcycle">
+    <h2>{{ motorcycle.modelName }}</h2>
+    <div>
+        Model name: 
+        <input [(ngModel)]="motorcycle.modelName" placeholder="Model Name"/>
+    </div>
+    <div>
+        Company: 
+        <input [(ngModel)]="motorcycle.company" placeholder="Company"/>
+    </div>
+    <div>
+        Model type: 
+        <input [(ngModel)]="motorcycle.modelType" placeholder="Model type"/>
+    </div>
+    <div>
+        Engine: 
+        <input [(ngModel)]="motorcycle.enginePower" placeholder="Engine power"/>
+    </div>
+    <div>
+        Price: 
+        <input [(ngModel)]="motorcycle.price" placeholder="Price"/>
+    </div>
+    <button class="btn btn-primary" (click)="updateMotorcycle(motorcycle)" *ngIf="motorcycle.id">Save</button>
+    <button class="btn btn-danger" (click)="deleteMotorcycle(motorcycle)" *ngIf="motorcycle.id">Delete</button>
+    <button class="btn btn-success" (click)="createMotorcycle(motorcycle)" *ngIf="!motorcycle.id">Create</button>
+</div>

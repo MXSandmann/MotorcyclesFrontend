@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MotorcycleReceived } from 'src/models/responses/motorcycleReceived';
+import { Motorcycle } from 'src/models/motorcycle';
 import { MotorcycleService } from '../services/motorcycle.service';
 
 @Component({
@@ -8,26 +8,29 @@ import { MotorcycleService } from '../services/motorcycle.service';
   styleUrls: ['./motorcycle.component.css']
 })
 export class MotorcycleComponent implements OnInit {
-  motorcycleRecieved: MotorcycleReceived[] = [];
-  title = 'Motorcycles';
-  displayMotorcyclesOverview = false;
-  buttonLabel = '';
+  title = 'Motorcycles'; 
+  
+  motorcycleToEdit?: Motorcycle;
+  motorcycles : Motorcycle[] = [];
    
   constructor(private motorcycleService : MotorcycleService) { }
 
-  ngOnInit(): void {
-    console.log('--> sending request on api to get all models')
-    this.motorcycleService.getAllMotorcycles().subscribe((result : MotorcycleReceived[]) => (this.motorcycleRecieved = result));
+  ngOnInit(): void {    
+    this.motorcycleService.getAllMotorcycles().subscribe((result : Motorcycle[]) => (this.motorcycles = result));
   }
 
-  onButtonClick()
+  initNewMotorcycle()
   {
-    this.displayMotorcyclesOverview = !this.displayMotorcyclesOverview;
+    this.motorcycleToEdit = new Motorcycle();
   }
 
-  getButtonLabel()
+  editMotorcycle(motorcycle: Motorcycle)
   {
-    return this.buttonLabel = this.displayMotorcyclesOverview? 'Hide motorcycles overview' : 'Show motorcycles overview';
+    this.motorcycleToEdit = motorcycle;
   }
 
+  updateMotorcycleList(motorcycles: Motorcycle[])
+  {
+    this.motorcycles = motorcycles;
+  }
 }

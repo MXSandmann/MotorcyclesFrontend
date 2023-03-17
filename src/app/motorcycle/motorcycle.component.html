@@ -1,8 +1,7 @@
-<button class="btn btn-primary" (click)="onButtonClick()">{{getButtonLabel()}}</button> 
-<div *ngIf="displayMotorcyclesOverview" class="container">
-    <h3>Motorcycles</h3>
+<div class="container">
+    <h3>Models Overview</h3>
     <div class="col-sm-4">
-        <button class="btn btn-primary" (click)="onButtonClick()">{{getButtonLabel()}}</button>         
+        <button class="btn btn-success" (click)="initNewMotorcycle()">Create a new model</button>         
     </div>    
     <table class="table table-striped">        
         <thead title="All motorcycles models">
@@ -14,14 +13,17 @@
             <th scope="col">Price</th>
         </thead>
         <tbody>
-            <tr *ngFor="let motorcycle of motorcycleRecieved">
+            <tr *ngFor="let motorcycle of motorcycles">
                 <td scope="row">{{ motorcycle.id }}</td>
                 <td scope="row">{{ motorcycle.modelName }}</td>
                 <td scope="row">{{ motorcycle.company }}</td>
                 <td scope="row">{{ motorcycle.modelType }}</td>
                 <td scope="row">{{ motorcycle.enginePower }}</td>
                 <td scope="row">{{ motorcycle.price }}</td>
+                <td><button class="btn btn-success" (click)="editMotorcycle(motorcycle)">Edit</button></td>
             </tr>
         </tbody>
     </table>
 </div>
+
+<app-edit-motorcycle [motorcycle]="motorcycleToEdit" (motorcyclesUpdated)="updateMotorcycleList($event)"></app-edit-motorcycle>
