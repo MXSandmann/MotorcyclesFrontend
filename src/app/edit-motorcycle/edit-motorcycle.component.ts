@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Motorcycle } from 'src/models/motorcycle';
 import { MotorcycleService } from 'src/app/services/motorcycle.service';
+import { ModelType } from 'src/models/enums/model-type';
 
 @Component({
   selector: 'app-edit-motorcycle',
@@ -12,6 +13,7 @@ export class EditMotorcycleComponent implements OnInit {
   @Output() motorcyclesUpdated = new EventEmitter<Motorcycle[]>();
 
   constructor(private motorcycleService : MotorcycleService) {}
+  modelTypes = Object.values(ModelType);
 
   ngOnInit(): void {
     

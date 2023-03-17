@@ -10,7 +10,10 @@
     </div>
     <div>
         Model type: 
-        <input [(ngModel)]="motorcycle.modelType" placeholder="Model type"/>
+        <!-- <input [(ngModel)]="motorcycle.modelType" placeholder="Model type"/> -->
+        <select [(ngModel)]="motorcycle.modelType">
+            <option *ngFor="let type of modelTypes" [value]="type">{{ type }}</option>
+        </select>
     </div>
     <div>
         Engine: 
