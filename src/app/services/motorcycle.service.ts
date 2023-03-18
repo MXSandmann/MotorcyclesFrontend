@@ -20,20 +20,17 @@ export class MotorcycleService {
     }
 
     // Put Request to update
-    public updateMotorcycle(motorcycle: Motorcycle) : Observable<Motorcycle[]>
-    {
+    public updateMotorcycle(motorcycle: Motorcycle) : Observable<Motorcycle[]> {
         return this.httpClient.put<Motorcycle[]>(`${environment.apiUrl}/${this.url}`, motorcycle);
     }
 
     // Post Request to create
-    public createMotorcycle(motorcycle: Motorcycle) : Observable<Motorcycle[]>
-    {        
+    public createMotorcycle(motorcycle: Motorcycle) : Observable<Motorcycle[]> {        
         return this.httpClient.post<Motorcycle[]>(`${environment.apiUrl}/${this.url}`, motorcycle);
     }
 
     // Delete Request to remove one
-    public deleteMotorcycle(motorcycle: Motorcycle) : Observable<Motorcycle[]>
-    {
+    public deleteMotorcycle(motorcycle: Motorcycle) : Observable<Motorcycle[]> {
         return this.httpClient.delete<Motorcycle[]>(`${environment.apiUrl}/${this.url}/${motorcycle.id}`);
     }
 }

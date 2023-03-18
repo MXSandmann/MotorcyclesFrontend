@@ -1,0 +1,13 @@
+<h3>Subscribe to receive notifications about new models</h3>
+<button class="btn btn-primary" (click)="onSubscribeButtonClick()">
+    {{getSubscribeButtonLabel()}}   
+</button> 
+<div *ngIf="displaySubscribeForm">    
+    <div>            
+        <input type="text" id="userName" [(ngModel)]="subscription.userName" required placeholder="Your name">        
+    </div>
+    <div>        
+        <input type="email" id="userEmail" [(ngModel)]="subscription.userEmail" required placeholder="Your email">
+    </div>  
+    <button class="btn btn-success" (click)="onSubmit(subscription)">Subscribe me!</button>    
+</div>

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Motorcycle } from 'src/models/motorcycle';
-import { MotorcycleService } from '../services/motorcycle.service';
+import { MotorcycleService } from 'src/app/services/motorcycle.service';
 
 @Component({
   selector: 'app-motorcycle',

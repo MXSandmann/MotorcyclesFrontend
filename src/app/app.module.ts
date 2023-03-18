@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { MotorcycleComponent } from './motorcycle/motorcycle.component';
 import { EditMotorcycleComponent } from './edit-motorcycle/edit-motorcycle.component';
 import { FormsModule } from '@angular/forms';
+import { SubscribeComponent } from './subscribe/subscribe.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MotorcycleComponent,
-    EditMotorcycleComponent
+    EditMotorcycleComponent,
+    SubscribeComponent
   ],
   imports: [
     BrowserModule,

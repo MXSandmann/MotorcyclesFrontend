@@ -1,8 +1,6 @@
 <div class="container">
-    <h3>Models Overview</h3>
-    <div class="col-sm-4">
-        <button class="btn btn-success" (click)="initNewMotorcycle()">Create a new model</button>         
-    </div>    
+    <h3>Models Overview</h3>    
+    <button class="btn btn-success" (click)="initNewMotorcycle()">Create a new model</button>
     <table class="table table-striped">        
         <thead title="All motorcycles models">
             <th scope="col">Id</th>
@@ -25,5 +23,4 @@
         </tbody>
     </table>
 </div>
-
 <app-edit-motorcycle [motorcycle]="motorcycleToEdit" (motorcyclesUpdated)="updateMotorcycleList($event)"></app-edit-motorcycle>

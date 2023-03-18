@@ -2,26 +2,25 @@
     <h2>{{ motorcycle.modelName }}</h2>
     <div>
         Model name: 
-        <input [(ngModel)]="motorcycle.modelName" placeholder="Model Name"/>
+        <input type="text" [(ngModel)]="motorcycle.modelName" required="Model name is required"/>
     </div>
     <div>
         Company: 
-        <input [(ngModel)]="motorcycle.company" placeholder="Company"/>
+        <input type="text" [(ngModel)]="motorcycle.company" />
     </div>
     <div>
-        Model type: 
-        <!-- <input [(ngModel)]="motorcycle.modelType" placeholder="Model type"/> -->
+        Model type:        
         <select [(ngModel)]="motorcycle.modelType">
             <option *ngFor="let type of modelTypes" [value]="type">{{ type }}</option>
         </select>
     </div>
     <div>
         Engine: 
-        <input [(ngModel)]="motorcycle.enginePower" placeholder="Engine power"/>
+        <input type="number" [(ngModel)]="motorcycle.enginePower" />
     </div>
     <div>
         Price: 
-        <input [(ngModel)]="motorcycle.price" placeholder="Price"/>
+        <input type="number" [(ngModel)]="motorcycle.price" />
     </div>
     <button class="btn btn-primary" (click)="updateMotorcycle(motorcycle)" *ngIf="motorcycle.id">Save</button>
     <button class="btn btn-danger" (click)="deleteMotorcycle(motorcycle)" *ngIf="motorcycle.id">Delete</button>
